@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '@/hooks/useAuth';
@@ -34,6 +33,15 @@ const Register = () => {
       toast({
         title: "Campos requeridos",
         description: "Por favor completa todos los campos obligatorios",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    if (formData.password.length !== 6 || !/^\d{6}$/.test(formData.password)) {
+      toast({
+        title: "Contraseña inválida",
+        description: "La contraseña debe tener exactamente 6 dígitos numéricos",
         variant: "destructive",
       });
       return;
@@ -80,7 +88,7 @@ const Register = () => {
                 }`}
                 onClick={() => handleInputChange('type', 'comerciante')}
               >
-                Comerciante
+                🏢 Comerciante
               </Button>
               <Button
                 type="button"
@@ -91,7 +99,7 @@ const Register = () => {
                 }`}
                 onClick={() => handleInputChange('type', 'proveedor')}
               >
-                Proveedor
+                🏭 Proveedor
               </Button>
             </div>
           </div>
@@ -154,15 +162,18 @@ const Register = () => {
             </div>
             
             <div>
-              <Label htmlFor="password">Contraseña *</Label>
+              <Label htmlFor="password">Contraseña (6 dígitos numéricos) *</Label>
               <Input
                 id="password"
                 type="password"
                 value={formData.password}
                 onChange={(e) => handleInputChange('password', e.target.value)}
-                placeholder="••••••••"
+                placeholder="123456"
+                maxLength={6}
+                pattern="[0-9]{6}"
                 className="border-primary-300 focus:border-primary-500"
               />
+              <p className="text-xs text-gray-500 mt-1">Ejemplo: 123456</p>
             </div>
 
             <Button 

@@ -3,7 +3,7 @@ export interface User {
   id: string;
   name: string;
   email: string;
-  type: 'comerciante' | 'proveedor';
+  type: 'administrador' | 'comerciante' | 'proveedor';
   company: string;
   ruc?: string;
   phone?: string;
@@ -11,6 +11,52 @@ export interface User {
   rating?: number;
   location?: string;
 }
+
+// Usuarios predefinidos con contraseñas de 6 dígitos
+const MOCK_USERS = [
+  {
+    email: 'admin@sistema.com',
+    password: '123456',
+    user: {
+      id: 'admin-1',
+      name: 'Ana Administradora',
+      email: 'admin@sistema.com',
+      type: 'administrador' as const,
+      company: 'Sistema B2B',
+      location: 'Lima, Perú'
+    }
+  },
+  {
+    email: 'comerciante@test.com',
+    password: '654321',
+    user: {
+      id: 'comerciante-1',
+      name: 'María García',
+      email: 'comerciante@test.com',
+      type: 'comerciante' as const,
+      company: 'Tienda XYZ',
+      ruc: '20123456789',
+      phone: '+51987654321',
+      rating: 4.2,
+      location: 'Lima, Perú'
+    }
+  },
+  {
+    email: 'proveedor@test.com',
+    password: '789012',
+    user: {
+      id: 'proveedor-1',
+      name: 'Juan Pérez',
+      email: 'proveedor@test.com',
+      type: 'proveedor' as const,
+      company: 'Distribuidora ABC',
+      ruc: '20123456789',
+      phone: '+51987654321',
+      rating: 4.5,
+      location: 'Lima, Perú'
+    }
+  }
+];
 
 class AuthService {
   private currentUser: User | null = null;
@@ -47,23 +93,17 @@ class AuthService {
     // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 1000));
     
-    // Mock user data - in real app this would come from backend
-    const mockUser: User = {
-      id: '1',
-      name: email === 'proveedor@test.com' ? 'Juan Pérez' : 'María García',
-      email,
-      type: email === 'proveedor@test.com' ? 'proveedor' : 'comerciante',
-      company: email === 'proveedor@test.com' ? 'Distribuidora ABC' : 'Tienda XYZ',
-      ruc: '20123456789',
-      phone: '+51987654321',
-      rating: 4.5,
-      location: 'Lima, Perú'
-    };
+    // Find user by email and password
+    const mockUser = MOCK_USERS.find(u => u.email === email && u.password === password);
+    
+    if (!mockUser) {
+      throw new Error('Credenciales incorrectas');
+    }
 
-    this.currentUser = mockUser;
-    localStorage.setItem('currentUser', JSON.stringify(mockUser));
+    this.currentUser = mockUser.user;
+    localStorage.setItem('currentUser', JSON.stringify(mockUser.user));
     this.notify();
-    return mockUser;
+    return mockUser.user;
   }
 
   async register(userData: {

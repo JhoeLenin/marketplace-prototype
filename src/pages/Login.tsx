@@ -28,10 +28,10 @@ const Login = () => {
     }
 
     try {
-      await login(email, password);
+      const user = await login(email, password);
       toast({
         title: "¡Bienvenido!",
-        description: "Has iniciado sesión correctamente",
+        description: `Has iniciado sesión como ${user.type}`,
       });
       navigate('/');
     } catch (error) {
@@ -41,6 +41,11 @@ const Login = () => {
         variant: "destructive",
       });
     }
+  };
+
+  const quickLogin = (userEmail: string, userPassword: string) => {
+    setEmail(userEmail);
+    setPassword(userPassword);
   };
 
   return (
@@ -69,13 +74,15 @@ const Login = () => {
             </div>
             
             <div>
-              <Label htmlFor="password">Contraseña</Label>
+              <Label htmlFor="password">Contraseña (6 dígitos)</Label>
               <Input
                 id="password"
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                placeholder="••••••••"
+                placeholder="123456"
+                maxLength={6}
+                pattern="[0-9]{6}"
                 className="border-primary-300 focus:border-primary-500"
               />
             </div>
@@ -109,10 +116,33 @@ const Login = () => {
           </div>
 
           <div className="mt-6 p-4 bg-primary-50 rounded-lg">
-            <p className="text-xs text-gray-600 mb-2">Cuentas de prueba:</p>
-            <p className="text-xs">Proveedor: proveedor@test.com</p>
-            <p className="text-xs">Comerciante: comerciante@test.com</p>
-            <p className="text-xs">Contraseña: cualquiera</p>
+            <p className="text-xs text-gray-600 mb-3 font-semibold">Cuentas de prueba:</p>
+            
+            <div className="space-y-2">
+              <button
+                onClick={() => quickLogin('admin@sistema.com', '123456')}
+                className="w-full text-left p-2 bg-white rounded border hover:bg-gray-50"
+              >
+                <p className="text-xs font-medium text-purple-700">👨‍💼 Administrador</p>
+                <p className="text-xs">admin@sistema.com - 123456</p>
+              </button>
+              
+              <button
+                onClick={() => quickLogin('comerciante@test.com', '654321')}
+                className="w-full text-left p-2 bg-white rounded border hover:bg-gray-50"
+              >
+                <p className="text-xs font-medium text-blue-700">🏢 Comerciante</p>
+                <p className="text-xs">comerciante@test.com - 654321</p>
+              </button>
+              
+              <button
+                onClick={() => quickLogin('proveedor@test.com', '789012')}
+                className="w-full text-left p-2 bg-white rounded border hover:bg-gray-50"
+              >
+                <p className="text-xs font-medium text-green-700">🏭 Proveedor</p>
+                <p className="text-xs">proveedor@test.com - 789012</p>
+              </button>
+            </div>
           </div>
         </CardContent>
       </Card>
