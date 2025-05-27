@@ -4,6 +4,7 @@ import SearchBar from '@/components/SearchBar';
 import Banner from '@/components/Banner';
 import CategoryGrid from '@/components/CategoryGrid';
 import ProductCard from '@/components/ProductCard';
+import Header from '@/components/Header';
 
 const featuredProducts = [
   {
@@ -33,6 +34,35 @@ const featuredProducts = [
       location: 'Gamarra, Lima'
     },
     minOrder: 100,
+    category: 'textiles'
+  },
+  {
+    id: '11',
+    name: 'Televisor Smart TV 55" 4K Ultra HD',
+    price: 1899,
+    unit: 'unidad',
+    image: 'https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400',
+    supplier: {
+      name: 'ElectroMega Distribuidores',
+      rating: 4.9,
+      location: 'San Isidro, Lima'
+    },
+    minOrder: 5,
+    isFavorite: true,
+    category: 'tecnologia'
+  },
+  {
+    id: '12',
+    name: 'Uniformes Médicos - Set Completo',
+    price: 85,
+    unit: 'set',
+    image: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400',
+    supplier: {
+      name: 'Confecciones MediCare EIRL',
+      rating: 4.7,
+      location: 'Ate, Lima'
+    },
+    minOrder: 50,
     category: 'textiles'
   }
 ];
@@ -66,12 +96,69 @@ const newProducts = [
     },
     minOrder: 200,
     category: 'construccion'
+  },
+  {
+    id: '13',
+    name: 'Aceite de Cocina Premium - Bidon 20L',
+    price: 95,
+    unit: 'bidón',
+    image: 'https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=400',
+    supplier: {
+      name: 'Industrias Alimentarias del Norte',
+      rating: 4.5,
+      location: 'Trujillo, Perú'
+    },
+    minOrder: 25,
+    category: 'alimentos'
+  },
+  {
+    id: '14',
+    name: 'Ladrillos King Kong - Millar',
+    price: 450,
+    unit: 'millar',
+    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400',
+    supplier: {
+      name: 'Ladrillera San Martín SAC',
+      rating: 4.8,
+      location: 'Huachipa, Lima'
+    },
+    minOrder: 10,
+    category: 'construccion'
+  },
+  {
+    id: '15',
+    name: 'Smartphone Samsung Galaxy A54 128GB',
+    price: 899,
+    unit: 'unidad',
+    image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400',
+    supplier: {
+      name: 'TechnoPlus Distribuciones',
+      rating: 4.6,
+      location: 'Miraflores, Lima'
+    },
+    minOrder: 20,
+    category: 'tecnologia'
+  },
+  {
+    id: '16',
+    name: 'Pantalones Cargo de Trabajo - Pack x50',
+    price: 35,
+    unit: 'unidad',
+    image: 'https://images.unsplash.com/photo-1542272454315-7ad9f1b1393e?w=400',
+    supplier: {
+      name: 'Confecciones Industriales Lima',
+      rating: 4.4,
+      location: 'Los Olivos, Lima'
+    },
+    minOrder: 50,
+    category: 'textiles'
   }
 ];
 
 const Home = () => {
   return (
     <div className="min-h-screen bg-gray-50 pb-20">
+      <Header />
       <SearchBar />
       <Banner />
       <CategoryGrid />

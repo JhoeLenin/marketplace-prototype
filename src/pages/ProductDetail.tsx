@@ -5,6 +5,7 @@ import { useAuth } from '@/hooks/useAuth';
 import { useToast } from '@/hooks/use-toast';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
+import Header from '@/components/Header';
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -86,7 +87,8 @@ const ProductDetail = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 pb-20">
-      {/* Header */}
+      <Header />
+      {/* Header Navigation */}
       <div className="bg-white shadow-sm p-4 flex items-center">
         <Button variant="ghost" size="sm" onClick={() => navigate(-1)}>
           ← Volver
