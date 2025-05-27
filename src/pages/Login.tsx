@@ -56,7 +56,7 @@ const Login = () => {
             <span className="text-2xl">🏢</span>
           </div>
           <CardTitle className="text-2xl font-bold text-gray-900">Iniciar Sesión</CardTitle>
-          <p className="text-gray-600">Accede a tu cuenta B2B</p>
+          <p className="text-gray-600">Accede a tu cuenta B2C</p>
         </CardHeader>
         
         <CardContent>

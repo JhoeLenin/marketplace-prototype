@@ -10,12 +10,12 @@ const categoriesData = [
     icon: '🥘',
     count: 1250,
     subcategories: [
-      { id: 'cereales', name: 'Cereales y Granos', count: 234 },
-      { id: 'lacteos', name: 'Lácteos', count: 189 },
-      { id: 'carnes', name: 'Carnes y Embutidos', count: 156 },
-      { id: 'bebidas', name: 'Bebidas', count: 298 },
-      { id: 'conservas', name: 'Conservas', count: 167 },
-      { id: 'panaderia', name: 'Panadería', count: 206 }
+      { id: 'cereales', name: 'Cereales y Granos', count: 234, products: ['Arroz Premium Grado A', 'Quinoa Orgánica', 'Avena Integral'] },
+      { id: 'lacteos', name: 'Lácteos', count: 189, products: ['Leche Evaporada', 'Queso Fresco', 'Yogurt Natural'] },
+      { id: 'carnes', name: 'Carnes y Embutidos', count: 156, products: ['Pollo Entero', 'Carne de Res', 'Jamón Serrano'] },
+      { id: 'bebidas', name: 'Bebidas', count: 298, products: ['Agua Mineral', 'Jugo de Naranja', 'Gaseosa Cola'] },
+      { id: 'conservas', name: 'Conservas', count: 167, products: ['Atún en Lata', 'Duraznos en Almíbar', 'Aceitunas Verdes'] },
+      { id: 'panaderia', name: 'Panadería', count: 206, products: ['Pan Integral', 'Galletas de Avena', 'Bizcochos Dulces'] }
     ]
   },
   {
@@ -24,12 +24,12 @@ const categoriesData = [
     icon: '👕',
     count: 890,
     subcategories: [
-      { id: 'uniformes', name: 'Uniformes Empresariales', count: 123 },
-      { id: 'ropa-trabajo', name: 'Ropa de Trabajo', count: 198 },
-      { id: 'telas', name: 'Telas por Metro', count: 234 },
-      { id: 'accesorios', name: 'Accesorios', count: 89 },
-      { id: 'calzado', name: 'Calzado Industrial', count: 156 },
-      { id: 'bordados', name: 'Bordados y Estampados', count: 90 }
+      { id: 'uniformes', name: 'Uniformes Empresariales', count: 123, products: ['Camisetas Polo Empresariales', 'Chalecos Corporativos', 'Pantalones de Vestir'] },
+      { id: 'ropa-trabajo', name: 'Ropa de Trabajo', count: 198, products: ['Overoles Industriales', 'Cascos de Seguridad', 'Botas de Trabajo'] },
+      { id: 'telas', name: 'Telas por Metro', count: 234, products: ['Algodón 100%', 'Poliéster Reciclado', 'Lino Natural'] },
+      { id: 'accesorios', name: 'Accesorios', count: 89, products: ['Cinturones de Cuero', 'Corbatas Corporativas', 'Pañuelos de Seda'] },
+      { id: 'calzado', name: 'Calzado Industrial', count: 156, products: ['Zapatos de Seguridad', 'Botas Antideslizantes', 'Zapatillas Deportivas'] },
+      { id: 'bordados', name: 'Bordados y Estampados', count: 90, products: ['Logos Bordados', 'Estampados Digitales', 'Parches Personalizados'] }
     ]
   },
   {
@@ -38,12 +38,12 @@ const categoriesData = [
     icon: '💻',
     count: 654,
     subcategories: [
-      { id: 'computadoras', name: 'Computadoras', count: 123 },
-      { id: 'perifericos', name: 'Periféricos', count: 89 },
-      { id: 'software', name: 'Software', count: 67 },
-      { id: 'servidores', name: 'Servidores', count: 45 },
-      { id: 'redes', name: 'Equipos de Red', count: 156 },
-      { id: 'seguridad', name: 'Seguridad IT', count: 174 }
+      { id: 'computadoras', name: 'Computadoras', count: 123, products: ['Laptop HP Pavilion 15"', 'PC Desktop Dell', 'MacBook Pro 13"'] },
+      { id: 'perifericos', name: 'Periféricos', count: 89, products: ['Mouse Inalámbrico', 'Teclado Mecánico', 'Monitor LED 24"'] },
+      { id: 'software', name: 'Software', count: 67, products: ['Microsoft Office', 'Antivirus Premium', 'Sistema de Gestión'] },
+      { id: 'servidores', name: 'Servidores', count: 45, products: ['Servidor HP ProLiant', 'Rack de Red 42U', 'UPS 3000VA'] },
+      { id: 'redes', name: 'Equipos de Red', count: 156, products: ['Router WiFi 6', 'Switch 24 Puertos', 'Access Point Empresarial'] },
+      { id: 'seguridad', name: 'Seguridad IT', count: 174, products: ['Cámara IP 4K', 'Sistema de Alarma', 'Firewall Enterprise'] }
     ]
   },
   {
@@ -52,11 +52,11 @@ const categoriesData = [
     icon: '🏗️',
     count: 432,
     subcategories: [
-      { id: 'cemento', name: 'Cemento y Mortero', count: 89 },
-      { id: 'acero', name: 'Acero y Fierro', count: 123 },
-      { id: 'madera', name: 'Madera', count: 67 },
-      { id: 'herramientas', name: 'Herramientas', count: 98 },
-      { id: 'pinturas', name: 'Pinturas', count: 55 }
+      { id: 'cemento', name: 'Cemento y Mortero', count: 89, products: ['Cemento Portland Tipo I', 'Mortero Premezclado', 'Adhesivo Cerámico'] },
+      { id: 'acero', name: 'Acero y Fierro', count: 123, products: ['Varillas de Acero 3/8"', 'Malla Electrosoldada', 'Perfiles de Acero'] },
+      { id: 'madera', name: 'Madera', count: 67, products: ['Tablones de Pino', 'Triplay 18mm', 'Vigas de Eucalipto'] },
+      { id: 'herramientas', name: 'Herramientas', count: 98, products: ['Taladro Percutor', 'Sierra Circular', 'Martillo Demoledor'] },
+      { id: 'pinturas', name: 'Pinturas', count: 55, products: ['Pintura Látex Blanca', 'Esmalte Sintético', 'Barniz Marino'] }
     ]
   }
 ];

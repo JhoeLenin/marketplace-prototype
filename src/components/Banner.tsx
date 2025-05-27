@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 const banners = [
   {
     id: 1,
-    title: "Ofertas Especiales B2B",
+    title: "Ofertas Especiales B2C",
     subtitle: "Descuentos de hasta 30% en compras al por mayor",
     image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=800",
     color: "from-blue-500 to-blue-700"
@@ -39,7 +39,7 @@ const Banner = () => {
   const banner = banners[currentBanner];
 
   return (
-    <div className="relative overflow-hidden rounded-lg mx-4 mt-4 h-40">
+    <div className="relative overflow-hidden rounded-lg mx-4 mt-4 h-56">
       <div 
         className={`absolute inset-0 bg-gradient-to-r ${banner.color} opacity-90`}
       />
@@ -49,8 +49,8 @@ const Banner = () => {
         className="absolute inset-0 w-full h-full object-cover"
       />
       <div className="relative z-10 flex flex-col justify-center h-full p-6 text-white">
-        <h2 className="text-xl font-bold mb-1">{banner.title}</h2>
-        <p className="text-sm opacity-90">{banner.subtitle}</p>
+        <h2 className="text-2xl font-bold mb-2">{banner.title}</h2>
+        <p className="text-base opacity-90">{banner.subtitle}</p>
       </div>
       
       {/* Indicators */}
@@ -59,7 +59,7 @@ const Banner = () => {
           <button
             key={index}
             onClick={() => setCurrentBanner(index)}
-            className={`w-2 h-2 rounded-full transition-all ${
+            className={`w-3 h-3 rounded-full transition-all ${
               index === currentBanner ? 'bg-white' : 'bg-white/50'
             }`}
           />

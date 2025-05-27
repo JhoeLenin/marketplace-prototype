@@ -18,10 +18,28 @@ const featuredProducts = [
       location: 'Lima, Perú'
     },
     minOrder: 10,
-    isFavorite: false
+    isFavorite: false,
+    category: 'tecnologia'
   },
   {
     id: '2',
+    name: 'Camisetas Polo Empresariales - Pack x100',
+    price: 15,
+    unit: 'unidad',
+    image: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400',
+    supplier: {
+      name: 'Textiles Express SAC',
+      rating: 4.5,
+      location: 'Gamarra, Lima'
+    },
+    minOrder: 100,
+    category: 'textiles'
+  }
+];
+
+const newProducts = [
+  {
+    id: '3',
     name: 'Arroz Premium Grado A - Saco 50kg',
     price: 120,
     unit: 'saco',
@@ -32,23 +50,8 @@ const featuredProducts = [
       location: 'Arequipa, Perú'
     },
     minOrder: 50,
-    isFavorite: true
-  }
-];
-
-const newProducts = [
-  {
-    id: '3',
-    name: 'Camisetas Polo Empresariales - Pack x100',
-    price: 15,
-    unit: 'unidad',
-    image: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400',
-    supplier: {
-      name: 'Textiles Express SAC',
-      rating: 4.5,
-      location: 'Gamarra, Lima'
-    },
-    minOrder: 100
+    isFavorite: true,
+    category: 'alimentos'
   },
   {
     id: '4',
@@ -61,7 +64,8 @@ const newProducts = [
       rating: 4.7,
       location: 'Callao, Perú'
     },
-    minOrder: 200
+    minOrder: 200,
+    category: 'construccion'
   }
 ];
 
